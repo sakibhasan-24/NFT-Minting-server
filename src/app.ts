@@ -6,6 +6,7 @@ import swaggerUi from "swagger-ui-express";
 
 import morgan from "morgan";
 import { specs } from "./app/swagger/swagger";
+import { nftRoutes } from "./app/modules/NFT/nft.routes";
 
 app.use(express.json());
 app.use(cors());
@@ -18,5 +19,7 @@ app.get("/", (req, res) => {
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 // Routes
+
+app.use("/nft", nftRoutes);
 
 export default app;
